@@ -157,7 +157,15 @@
         .about-image:hover {
             content: url(https://github.com/johnjohnlargent/personal-webpage/assets/170893182/a9358fb5-ec70-41f1-a6a8-171642fafd84);
         }
+        @media only screen and (max-width: 1200px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr); /* Change to 2 columns for smaller screens */
+            }
+        }
         @media only screen and (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(1, 1fr); /* Change to 1 column for mobile screens */
+            }
             .about-image {
                 width: 300px;
                 left: -14em;
