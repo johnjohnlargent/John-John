@@ -23,16 +23,16 @@
         header h1 {
             display: block;
             margin: 0;
-            font-size: 1em; /* Reduced to half the original size */
+            font-size: 1em;
             text-transform: uppercase;
             font-weight: 700;
             -webkit-font-smoothing: antialiased;
-            color: #000000; /* Changed to black */
+            color: #000000;
         }
         header h2 {
             display: inline-block;
             margin: 0;
-            font-size: 1.5em; /* Reduced to half the original size */
+            font-size: 1.5em;
             color: #000000;
             text-transform: uppercase;
             font-weight: 700;
@@ -42,7 +42,7 @@
             position: absolute;
             top: 0;
             left: calc(100% + 1em);
-            font-size: 0.75em; /* Reduced to half the original size */
+            font-size: 0.75em;
             color: #000000;
         }
         .marquee-container {
@@ -50,10 +50,10 @@
             overflow: hidden;
             position: absolute;
             left: 0;
-            background-color: #000000; /* Changed to black */
+            background-color: #000000;
         }
         .marquee-text {
-            font-size: 0.375em; /* Reduced to half the original size */
+            font-size: 0.375em;
             color: #ffffff;
             text-align: left;
             font-weight: normal;
@@ -75,15 +75,15 @@
             }
         }
         .small-c {
-            font-size: 0.25em; /* Reduced to half the original size */
+            font-size: 0.25em;
         }
         .banner {
-            text-align: left; /* Left align */
-            padding: 0.5em 0; /* Updated padding */
-            padding-left: 1em; /* Added padding-left to move it more to the left */
+            text-align: left;
+            padding: 0.5em 0;
+            padding-left: 1em;
             border-bottom: 1px solid #ccc;
-            font-size: 0.7em; /* Reduced to half the original size */
-            margin-top: 2em; /* Adjusted margin-top to place it higher but not hidden */
+            font-size: 0.7em;
+            margin-top: 2em;
         }
         .banner a {
             margin: 0 15px;
@@ -116,7 +116,7 @@
         }
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr); /* Updated to 3 columns */
+            grid-template-columns: repeat(3, 1fr);
             gap: 1em;
         }
         .project-cell {
@@ -135,14 +135,14 @@
             position: relative;
             background-size: cover;
             background-position: center;
-            border: 1px solid #000000; /* Thin black border */
+            border: 1px solid #000000;
         }
         .project-video {
             padding: 0;
             overflow: hidden;
         }
         .project-video video {
-            width: 176%;
+            width: 100%;
             height: 100%;
             object-fit: cover;
         }
@@ -159,12 +159,12 @@
         }
         @media only screen and (max-width: 1200px) {
             .project-grid {
-                grid-template-columns: repeat(2, 1fr); /* Change to 2 columns for smaller screens */
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         @media only screen and (max-width: 768px) {
             .project-grid {
-                grid-template-columns: repeat(1, 1fr); /* Change to 1 column for mobile screens */
+                grid-template-columns: repeat(1, 1fr);
             }
             .about-image {
                 width: 300px;
@@ -189,7 +189,7 @@
             padding: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            font-size: 0.875em; /* Slightly smaller text */
+            font-size: 0.875em;
         }
         .announcement p {
             margin: 0;
@@ -203,14 +203,14 @@
             line-height: 1;
         }
         .newsletter {
-            background-color: #ffffff; /* White background */
-            color: #000000; /* Black text */
+            background-color: #ffffff;
+            color: #000000;
             padding: 2em;
             text-align: center;
-            min-height: 100vh; /* Ensure it takes the full viewport height */
+            min-height: 100vh;
         }
         .newsletter h2 {
-            font-size: 2em; /* Larger font size for the title */
+            font-size: 2em;
             margin-bottom: 1em;
         }
     </style>
@@ -264,7 +264,9 @@
         <!-- Grid of 3x3 square images -->
         <div class="project-grid">
             <div class="project-cell">
-                <div class="project-image" style="background-image: url('URL_TO_IMAGE_1');"></div>
+                <div class="project-video">
+                    <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/a5bf6352-4c2e-41ce-8476-7bdf34609efc" autoplay loop muted></video>
+                </div>
             </div>
             <div class="project-cell">
                 <div class="project-image" style="background-image: url('URL_TO_IMAGE_2');"></div>
