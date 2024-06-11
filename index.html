@@ -117,11 +117,11 @@
         .project-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.5em; /* Reduced gap for smaller space between images */
+            gap: 1em; /* Original gap for larger screens */
         }
         .project-cell {
             text-align: center;
-            padding: 0.5em; /* Reduced padding for smaller space around images */
+            padding: 1em; /* Original padding for larger screens */
             box-sizing: border-box;
         }
         .project-title {
@@ -164,11 +164,19 @@
         @media only screen and (max-width: 1200px) {
             .project-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 0.5em; /* Reduced gap for smaller screens */
+            }
+            .project-cell {
+                padding: 0.5em; /* Reduced padding for smaller screens */
             }
         }
         @media only screen and (max-width: 768px) {
             .project-grid {
                 grid-template-columns: repeat(1, 1fr);
+                gap: 0.5em; /* Reduced gap for smaller screens */
+            }
+            .project-cell {
+                padding: 0.5em; /* Reduced padding for smaller screens */
             }
             .about-image {
                 width: 300px;
@@ -186,9 +194,10 @@
         @media only screen and (max-width: 767px) {
             .project-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 0.25em; /* Further reduced gap for very small screens */
             }
             .project-cell {
-                padding: 0.25em; /* Further reduced padding for even less space around images */
+                padding: 0.25em; /* Further reduced padding for very small screens */
             }
         }
         .announcement {
@@ -260,13 +269,14 @@
                 </div>
             </div>
         </div>
-        <div class="banner">
-            <a href="#newsletter-section">Newsletter</a>
-        </div>
     </header>
-
+    <div class="banner">
+        <a href="#about">About Me</a> | 
+        <a href="#latest-Works">Latest Works</a> | 
+        <a href="#contact">Contact</a>
+    </div>
     <section id="about">
-        <img src="https://github.com/johnjohnlargent/personal-webpage/assets/170893182/5f43ce4b-5863-4fd4-b4e7-ffcdf8120cd5" alt="About Me Image" class="about-image">
+        <h2>About Me</h2>
         <p>Hello, I'm John John Largent, currently studying for a Bachelor Degree in Art History at Concordia University in Montreal. Here you'll find information about me, my work, and how to get in touch.</p>
     </section>
 
