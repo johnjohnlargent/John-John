@@ -123,28 +123,24 @@
             text-align: center;
             padding: 1em;
             box-sizing: border-box;
-            position: relative;
         }
         .project-title {
             font-size: 1.2em;
             margin-bottom: 0.5em;
         }
-        .project-overlay-container {
-            position: relative;
-        }
         .project-image, .project-video {
             width: 100%;
             background-color: #e0e0e0;
+            position: relative;
             background-size: cover;
             background-position: center;
             border: 1px solid #000000;
-            transition: all 0.3s ease;
         }
         .project-image {
             padding-bottom: 100%;
         }
         .project-video {
-            padding-bottom: 100%;
+            padding-bottom: 100%; /* Maintains aspect ratio */
             overflow: hidden;
         }
         .project-video video {
@@ -156,24 +152,240 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: all 0.3s ease;
         }
-        .overlay {
+        .about-image {
+            position: absolute;
+            left: -19em;
+            top: 130%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: auto;
+        }
+        .about-image:hover {
+            content: url(https://github.com/johnjohnlargent/personal-webpage/assets/170893182/a9358fb5-ec70-41f1-a6a8-171642fafd84);
+        }
+        @media only screen and (max-width: 1200px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(1, 1fr);
+            }
+            .about-image {
+                width: 300px;
+                left: -14em;
+                top: 140%;
+            }
+        }
+        @media only screen and (max-width: 480px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-image {
+                width: 200px;
+                left: -9em;
+                top: 150%;
+            }
+        }
+        .announcement {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 250px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            font-size: 0.875em;
+        }
+        .announcement p {
+            margin: 0;
+        }
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            font-size: 1.25em;
+            line-height: 1;
+        }
+        .newsletter {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 2em;
+            text-align: center;
+            min-height: 100vh;
+        }
+        .newsletter h2 {
+            font-size: 2em;
+            margin-bottom: 1em;
+        }
+    </style>
+    <script>
+        function closeAnnouncement() {
+            document.getElementById('announcement').style.display = 'none';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            var closeButton = document.querySelector('.close-btn');
+            if (closeButton) {
+                closeButton.addEventListener('click', closeAnnouncement);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Webpage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-style: italic;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        header {
+            padding: 1em 0;
+            text-align: left;
+            padding-left: 1em;
+            position: relative;
+        }
+        header h1 {
+            display: block;
+            margin: 0;
+            font-size: 1em;
+            text-transform: uppercase;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+            color: #000000;
+        }
+        header h2 {
+            display: inline-block;
+            margin: 0;
+            font-size: 1.5em;
+            color: #000000;
+            text-transform: uppercase;
+            font-weight: 700;
+            -webkit-font-smoothing: antialiased;
+        }
+        .john-largent {
+            position: absolute;
+            top: 0;
+            left: calc(100% + 1em);
+            font-size: 0.75em;
+            color: #000000;
+        }
+        .marquee-container {
+            width: 100vw;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            background-color: #000000;
+        }
+        .marquee-text {
+            font-size: 0.375em;
+            color: #ffffff;
+            text-align: left;
+            font-weight: normal;
+            text-transform: uppercase;
+            animation: moveText 15s linear infinite;
+            padding: 0.5em;
+            white-space: nowrap;
+            display: inline-block;
+        }
+        .marquee-content {
+            display: inline-block;
+        }
+        @keyframes moveText {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .small-c {
+            font-size: 0.25em;
+        }
+        .banner {
+            text-align: left;
+            padding: 0.5em 0;
+            padding-left: 1em;
+            border-bottom: 1px solid #ccc;
+            font-size: 0.7em;
+            margin-top: 2em;
+        }
+        .banner a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000000;
+            font-weight: bold;
+        }
+        nav {
+            text-align: center;
+            padding: 1em 0;
+        }
+        nav a {
+            color: #000000;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        section {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+            margin-top: 1em;
+            position: relative;
+        }
+        section h2::first-letter {
+            color: #000000;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+        }
+        .project-cell {
+            text-align: center;
+            padding: 1em;
+            box-sizing: border-box;
+        }
+        .project-title {
+            font-size: 1.2em;
+            margin-bottom: 0.5em;
+        }
+        .project-image, .project-video {
+            width: 100%;
+            background-color: #e0e0e0;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #000000;
+        }
+        .project-image {
+            padding-bottom: 100%;
+        }
+        .project-video {
+            padding-bottom: 100%; /* Maintains aspect ratio */
+            overflow: hidden;
+        }
+        .project-video video {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.6);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        .project-cell:hover .overlay {
-            opacity: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .about-image {
             position: absolute;
@@ -256,22 +468,6 @@
                 closeButton.addEventListener('click', closeAnnouncement);
                 closeButton.addEventListener('pointerdown', closeAnnouncement);
             }
-
-            var projectCells = document.querySelectorAll('.project-cell');
-            projectCells.forEach(function(cell) {
-                cell.addEventListener('mouseover', function() {
-                    var overlay = cell.querySelector('.overlay');
-                    if (overlay) {
-                        overlay.style.opacity = '1';
-                    }
-                });
-                cell.addEventListener('mouseout', function() {
-                    var overlay = cell.querySelector('.overlay');
-                    if (overlay) {
-                        overlay.style.opacity = '0';
-                    }
-                });
-            });
         });
     </script>
 </head>
@@ -310,63 +506,36 @@
     <section id="latest-Works">
         <h2>Latest Works</h2>
         <div class="project-grid">
-            <div class="project-cell" data-description="Casual summer activities in Montreal.">
-                <div class="project-overlay-container">
-                    <div class="project-video">
-                        <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/a5bf6352-4c2e-41ce-8476-7bdf34609efc" autoplay loop muted playsinline></video>
-                    </div>
-                    <div class="overlay">Casual summer activities in Montreal.</div>
+            <div class="project-cell">
+                <div class="project-video">
+                    <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/a5bf6352-4c2e-41ce-8476-7bdf34609efc" autoplay loop muted playsinline></video>
                 </div>
             </div>
-            <div class="project-cell" data-description="Argentic photomontage featuring Rayan Vanderbelen.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/eecde423-4c2f-4809-a8d7-08ebf74e2650');"></div>
-                    <div class="overlay">Argentic photomontage featuring Rayan Vanderbelen.</div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/eecde423-4c2f-4809-a8d7-08ebf74e2650');"></div>
+            </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/8dd9d0b6-d8f3-4881-8cdc-7af577fe481a');"></div>
+            </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/935f0da6-fc4c-4ece-9090-4659e905122f');"></div>
+            </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/42aa20ed-5858-4a8b-914a-f318108b9153');"></div>
+            </div>
+            <div class="project-cell">
+                <div class="project-video">
+                    <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/49b496a9-b6bd-4906-91a0-0626993c8787" autoplay loop muted playsinline></video>
                 </div>
             </div>
-            <div class="project-cell" data-description="Acrylic painting on cardboard.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/8dd9d0b6-d8f3-4881-8cdc-7af577fe481a');"></div>
-                    <div class="overlay">Acrylic painting on cardboard.</div>
-                </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/5ab1efdc-f294-46d0-8c3f-4e00cb3c4eda');"></div>
             </div>
-            <div class="project-cell" data-description="Custom-painted interior chair.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/935f0da6-fc4c-4ece-9090-4659e905122f');"></div>
-                    <div class="overlay">Custom-painted interior chair.</div>
-                </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('URL_TO_IMAGE_8');"></div>
             </div>
-            <div class="project-cell" data-description="Henri Matisse-inspired digital painting made with &quot;Paint&quot;.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/42aa20ed-5858-4a8b-914a-f318108b9153');"></div>
-                    <div class="overlay">Henri Matisse-inspired digital painting made with "Paint".</div>
-                </div>
-            </div>
-            <div class="project-cell" data-description="Abstract experimental film.">
-                <div class="project-overlay-container">
-                    <div class="project-video">
-                        <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/49b496a9-b6bd-4906-91a0-0626993c8787" autoplay loop muted playsinline></video>
-                    </div>
-                    <div class="overlay">Abstract experimental film.</div>
-                </div>
-            </div>
-            <div class="project-cell" data-description="Handcrafted design on hoodie.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/5ab1efdc-f294-46d0-8c3f-4e00cb3c4eda');"></div>
-                    <div class="overlay">Handcrafted design on hoodie.</div>
-                </div>
-            </div>
-            <div class="project-cell" data-description="Description for image 8.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('URL_TO_IMAGE_8');"></div>
-                    <div class="overlay">Description for image 8.</div>
-                </div>
-            </div>
-            <div class="project-cell" data-description="Description for image 9.">
-                <div class="project-overlay-container">
-                    <div class="project-image" style="background-image: url('URL_TO_IMAGE_9');"></div>
-                    <div class="overlay">Description for image 9.</div>
-                </div>
+            <div class="project-cell">
+                <div class="project-image" style="background-image: url('URL_TO_IMAGE_9');"></div>
             </div>
         </div>
     </section>
