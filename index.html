@@ -123,24 +123,28 @@
             text-align: center;
             padding: 1em;
             box-sizing: border-box;
+            position: relative;
         }
         .project-title {
             font-size: 1.2em;
             margin-bottom: 0.5em;
         }
+        .project-overlay-container {
+            position: relative;
+        }
         .project-image, .project-video {
             width: 100%;
             background-color: #e0e0e0;
-            position: relative;
             background-size: cover;
             background-position: center;
             border: 1px solid #000000;
+            transition: all 0.3s ease;
         }
         .project-image {
             padding-bottom: 100%;
         }
         .project-video {
-            padding-bottom: 100%; /* Maintains aspect ratio */
+            padding-bottom: 100%;
             overflow: hidden;
         }
         .project-video video {
@@ -152,6 +156,24 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .project-cell:hover .overlay {
+            opacity: 1;
         }
         .about-image {
             position: absolute;
@@ -234,6 +256,22 @@
                 closeButton.addEventListener('click', closeAnnouncement);
                 closeButton.addEventListener('pointerdown', closeAnnouncement);
             }
+
+            var projectCells = document.querySelectorAll('.project-cell');
+            projectCells.forEach(function(cell) {
+                cell.addEventListener('mouseover', function() {
+                    var overlay = cell.querySelector('.overlay');
+                    if (overlay) {
+                        overlay.style.opacity = '1';
+                    }
+                });
+                cell.addEventListener('mouseout', function() {
+                    var overlay = cell.querySelector('.overlay');
+                    if (overlay) {
+                        overlay.style.opacity = '0';
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -272,36 +310,63 @@
     <section id="latest-Works">
         <h2>Latest Works</h2>
         <div class="project-grid">
-            <div class="project-cell">
-                <div class="project-video">
-                    <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/a5bf6352-4c2e-41ce-8476-7bdf34609efc" autoplay loop muted playsinline></video>
+            <div class="project-cell" data-description="Casual summer activities in Montreal.">
+                <div class="project-overlay-container">
+                    <div class="project-video">
+                        <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/a5bf6352-4c2e-41ce-8476-7bdf34609efc" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="overlay">Casual summer activities in Montreal.</div>
                 </div>
             </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/eecde423-4c2f-4809-a8d7-08ebf74e2650');"></div>
-            </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/8dd9d0b6-d8f3-4881-8cdc-7af577fe481a');"></div>
-            </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/935f0da6-fc4c-4ece-9090-4659e905122f');"></div>
-            </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/42aa20ed-5858-4a8b-914a-f318108b9153');"></div>
-            </div>
-            <div class="project-cell">
-                <div class="project-video">
-                    <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/49b496a9-b6bd-4906-91a0-0626993c8787" autoplay loop muted playsinline></video>
+            <div class="project-cell" data-description="Argentic photomontage featuring Rayan Vanderbelen.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/eecde423-4c2f-4809-a8d7-08ebf74e2650');"></div>
+                    <div class="overlay">Argentic photomontage featuring Rayan Vanderbelen.</div>
                 </div>
             </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/5ab1efdc-f294-46d0-8c3f-4e00cb3c4eda');"></div>
+            <div class="project-cell" data-description="Acrylic painting on cardboard.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/8dd9d0b6-d8f3-4881-8cdc-7af577fe481a');"></div>
+                    <div class="overlay">Acrylic painting on cardboard.</div>
+                </div>
             </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('URL_TO_IMAGE_8');"></div>
+            <div class="project-cell" data-description="Custom-painted interior chair.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/935f0da6-fc4c-4ece-9090-4659e905122f');"></div>
+                    <div class="overlay">Custom-painted interior chair.</div>
+                </div>
             </div>
-            <div class="project-cell">
-                <div class="project-image" style="background-image: url('URL_TO_IMAGE_9');"></div>
+            <div class="project-cell" data-description="Henri Matisse-inspired digital painting made with &quot;Paint&quot;.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/42aa20ed-5858-4a8b-914a-f318108b9153');"></div>
+                    <div class="overlay">Henri Matisse-inspired digital painting made with "Paint".</div>
+                </div>
+            </div>
+            <div class="project-cell" data-description="Abstract experimental film.">
+                <div class="project-overlay-container">
+                    <div class="project-video">
+                        <video src="https://github.com/johnjohnlargent/John-John/assets/170893182/49b496a9-b6bd-4906-91a0-0626993c8787" autoplay loop muted playsinline></video>
+                    </div>
+                    <div class="overlay">Abstract experimental film.</div>
+                </div>
+            </div>
+            <div class="project-cell" data-description="Handcrafted design on hoodie.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('https://github.com/johnjohnlargent/John-John/assets/170893182/5ab1efdc-f294-46d0-8c3f-4e00cb3c4eda');"></div>
+                    <div class="overlay">Handcrafted design on hoodie.</div>
+                </div>
+            </div>
+            <div class="project-cell" data-description="Description for image 8.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('URL_TO_IMAGE_8');"></div>
+                    <div class="overlay">Description for image 8.</div>
+                </div>
+            </div>
+            <div class="project-cell" data-description="Description for image 9.">
+                <div class="project-overlay-container">
+                    <div class="project-image" style="background-image: url('URL_TO_IMAGE_9');"></div>
+                    <div class="overlay">Description for image 9.</div>
+                </div>
             </div>
         </div>
     </section>
@@ -325,4 +390,3 @@
     </footer>
 </body>
 </html>
-
